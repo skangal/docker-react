@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t skangal/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run skangal/docker-react npm run test -- --coverage
